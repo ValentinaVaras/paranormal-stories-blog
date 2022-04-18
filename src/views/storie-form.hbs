@@ -1,0 +1,35 @@
+{{> navbar}}
+<div class="container mt-3">
+  <h2>
+    {{#if id}}
+      Actualizando la historia "{{title}}" ({{id}}) &#128123;
+    {{else}}
+      Crear una nueva historia &#128123;
+    {{/if}}
+  </h2><br><br>
+  <!--
+    Este formulario se usará tanto para edición como creación, este if nos dice que si viene un id, entonces será un update, si no, será un create.
+    Para el action, si viene un id será un post a /articles/:id/update, si no, será un post a /articles/create.
+  -->
+  <form action="/stories/{{#if id}}{{id}}/update{{else}}create{{/if}}" method="POST">
+    <div class="mb-3">
+      <label for="title" class="form-label">Título</label>
+      <input type="text" class="form-control" name="title" aria-describedby="titleHelp" required="true" value="{{title}}">
+      <div id="titleHelp" class="form-text">Escribe el titulo de tu historia paranormal</div>
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-label">Contenido</label>
+      <textarea class="form-control" name="content" rows="3" aria-describedby="contentHelp">{{content}}</textarea>
+      <div id="contentHelp" class="form-text">¿Que historia paranormal quieres contar?</div>
+    </div>
+    <div class="mb-3">
+      <label for="title" class="form-label">Imagen</label>
+      <input type="text" class="form-control" name="image" aria-describedby="imageHelp" required="true" value="{{image}}">
+      <div id="imageHelp" class="form-text">Utiliza una buena imagen</div>
+    </div>
+    <div class="mb-3">
+      <button type="submit" class="btn btn-warning">Enviar</button>
+      {{> backhome}}
+    </div>
+  </form>
+</div>

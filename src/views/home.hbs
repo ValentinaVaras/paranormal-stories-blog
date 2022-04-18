@@ -1,0 +1,21 @@
+{{> navbar}}
+<div class="container mt-3">
+  <header class="my-5">
+    <h1> &#128123; El Blog paranormal &#128123;</h1><br><br>
+    <p>
+      Sean todos bienvenidos al Blog Paranormal!. Aqui hablaremos de historias paranormales tanto personales como colectivas (mitos y leyendas). Aceptamos con gusto sus contribuciones para que todos nos deleitemos con las historias que los conocimientos cientificos actuales no pueden explicar.  
+    </p>
+  </header>
+  <hr>
+  <h3 class="mt-5 mb-3">Nuestras historias:</h3>
+  {{#each stories}}
+    <div class="card mb-3">
+      <div class="card-body">
+        <img src="{{this.image}}" width="300px" height="200px"> <br><br>
+        <h5 class="card-title">{{this.title}}</h5> <br>
+        <p class="card-text">{{this.content}}</p> <br>
+        <a href="/stories/{{this.id}}" class="btn btn-warning btn-sm">Leer más</a><hr>
+      </div>
+    </div>
+  {{/each}}
+</div>
